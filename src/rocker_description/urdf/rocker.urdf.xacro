@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="rocker" xmlns:xacro="http://ros.org/wiki/xacro">
+      <!-- Start GZ or Ignition depending on ROS 2 Version -->
+  <xacro:arg name="is_ignition" default="true"/>
+
+  <!-- Include Gazebo Parameters -->
+  <xacro:include filename="$(find rocker_description)/urdf/rocker_gazebo.xacro" />
+
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0035775563604438 -2.81267671949081E-06 0.12454606336"
+        rpy="0 0 0" />
+      <mass
+        value="4.56931514838167" />
+      <inertia
+        ixx="0.0125262035172634"
+        ixy="5.29051390438252E-06"
+        ixz="1.08031453670977E-05"
+        iyy="0.0125092740856476"
+        iyz="-7.19198139134337E-08"
+        izz="0.0220336616671759" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="front_left">
+    <inertial>
+      <origin
+        xyz="1.66674379853404E-09 -1.8486451147659E-08 -0.00840874583108248"
+        rpy="0 0 0" />
+      <mass
+        value="0.130172906475179" />
+      <inertia
+        ixx="0.000124777993357732"
+        ixy="-3.76254885478905E-11"
+        ixz="-7.38705638559013E-12"
+        iyy="0.000124778057634718"
+        iyz="8.39261297081818E-12"
+        izz="0.000234671292019043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/front_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/front_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_joint"
+    type="revolute">
+    <origin
+      xyz="0.11141 0.25246 -0.17085"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="10"
+      velocity="100" />
+  </joint>
+  <link
+    name="rear_left">
+    <inertial>
+      <origin
+        xyz="-1.47117415333353E-08 -1.13177547889087E-08 -0.00840874583108248"
+        rpy="0 0 0" />
+      <mass
+        value="0.130172906475179" />
+      <inertia
+        ixx="0.000124778005105287"
+        ixy="4.50862478041575E-11"
+        ixz="3.12432846849402E-12"
+        iyy="0.000124778045887163"
+        iyz="1.07351341658339E-11"
+        izz="0.000234671292019043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/rear_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/rear_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_left_joint"
+    type="revolute">
+    <origin
+      xyz="-0.10858 0.25246 -0.17308"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="10"
+      velocity="100" />
+  </joint>
+  <link
+    name="front_right">
+    <inertial>
+      <origin
+        xyz="1.71863810405348E-08 7.01107864820028E-09 -0.00840874583108253"
+        rpy="0 0 0" />
+      <mass
+        value="0.130172906475179" />
+      <inertia
+        ixx="0.000124778031030264"
+        ixy="4.91724972841985E-11"
+        ixz="-5.85934501544214E-12"
+        iyy="0.000124778019962186"
+        iyz="-9.52221565129616E-12"
+        izz="0.000234671292019043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/front_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/front_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_joint"
+    type="revolute">
+    <origin
+      xyz="0.10908 -0.25238 -0.17304"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="10"
+      velocity="100" />
+  </joint>
+  <link
+    name="rear_right">
+    <inertial>
+      <origin
+        xyz="3.16262971367109E-09 1.82900160711208E-08 -0.00840874583108248"
+        rpy="0 0 0" />
+      <mass
+        value="0.13017290647518" />
+      <inertia
+        ixx="0.000124777978872561"
+        ixy="-1.65769124504334E-11"
+        ixz="4.969787210541E-12"
+        iyy="0.000124778072119889"
+        iyz="-1.00152746107329E-11"
+        izz="0.000234671292019043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/rear_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/rear_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rear_right_joint"
+    type="revolute">
+    <origin
+      xyz="-0.11091 -0.25238 -0.17089"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="10"
+      velocity="100" />
+  </joint>
+</robot>
