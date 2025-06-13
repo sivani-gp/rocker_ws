@@ -3,12 +3,13 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="rocker" xmlns:xacro="http://ros.org/wiki/xacro">
-      <!-- Start GZ or Ignition depending on ROS 2 Version -->
+  <!-- Start GZ or Ignition depending on ROS 2 Version -->
   <xacro:arg name="is_ignition" default="true"/>
 
   <!-- Include Gazebo Parameters -->
   <xacro:include filename="$(find rocker_description)/urdf/rocker_gazebo.xacro" />
-  <!-- <xacro:include filename="$(find rocker_description)/urdf/rocker_control.xacro"/> -->
+  <!-- Include control -->
+  <xacro:include filename="$(find rocker_description)/urdf/rocker_ros2_control.xacro"/>
 
   
   <link
