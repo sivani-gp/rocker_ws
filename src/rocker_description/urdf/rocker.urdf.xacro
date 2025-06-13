@@ -8,6 +8,7 @@
 
   <!-- Include Gazebo Parameters -->
   <xacro:include filename="$(find rocker_description)/urdf/rocker_gazebo.xacro" />
+  <!-- <xacro:include filename="$(find rocker_description)/urdf/rocker_control.xacro"/> -->
 
   
   <link
