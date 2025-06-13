@@ -14,6 +14,6 @@ controller_manager:
 simple_velocity_controller:
   ros__parameters:
     joints:
-      -front_left_joint
-      -front_right_joint
+      - front_left_joint
+      - front_right_joint
       

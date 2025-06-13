@@ -31,13 +31,13 @@ def generate_launch_description():
         )
     
     robot_description = ParameterValue(Command([
-            "xacro ",
-            LaunchConfiguration("model"),
-            " is_ignition:=",
-            is_ignition
-        ]),
-        value_type=str
-    )
+        "xacro ",
+        LaunchConfiguration("model"),
+        " is_sim:=true ",
+        "is_ignition:=", is_ignition
+    ]),
+    value_type=str)
+
 
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
