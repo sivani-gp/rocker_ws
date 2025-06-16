@@ -13,16 +13,24 @@ def generate_launch_description():
         ],
     )
 
-    simple_controller = Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["simple_velocity_controller", 
-                        "--controller-manager", 
-                        "/controller_manager"
-                ]
-            )
+    simple_velocity_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["simple_velocity_controller", 
+                   "--controller-manager", 
+                   "/controller_manager"],
+    )
+
+    swerve_steering_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["swerve_steering_controller", 
+                   "--controller-manager", 
+                   "/controller_manager"],
+    )
 
     return LaunchDescription([
         joint_state_broadcaster_spawner,
-        simple_controller 
+        simple_velocity_controller_spawner,
+        swerve_steering_controller_spawner
     ])
