@@ -4,42 +4,42 @@
 
   <!-- Wheels -->
   <gazebo reference="front_left_wheel">
-    <mu1>1000000000000000.0</mu1>
-    <mu2>1000000000000000.0</mu2>
-    <kp>1000000000000.0</kp>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1e6</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>0.5</maxVel>
     <fdir1>1 0 0</fdir1>
   </gazebo>
   
   <gazebo reference="rear_right_wheel">
-    <mu1>1000000000000000.0</mu1>
-    <mu2>1000000000000000.0</mu2>
-    <kp>1000000000000.0</kp>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1e6</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>0.5</maxVel>
     <fdir1>1 0 0</fdir1>
   </gazebo>
 
   <gazebo reference="rear_left_wheel">
-    <mu1>1000000000000000.0</mu1>
-    <mu2>1000000000000000.0</mu2>
-    <kp>1000000000000.0</kp>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1e6</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>0.5</maxVel>
     <fdir1>1 0 0</fdir1>
   </gazebo>
 
   <gazebo reference="front_right_wheel">
-    <mu1>1000000000000000.0</mu1>
-    <mu2>1000000000000000.0</mu2>
-    <kp>1000000000000.0</kp>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1e6</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>0.1</maxVel>
+    <maxVel>0.5</maxVel>
     <fdir1>1 0 0</fdir1>
   </gazebo>
   

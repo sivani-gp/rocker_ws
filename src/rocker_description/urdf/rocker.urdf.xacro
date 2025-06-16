@@ -153,7 +153,7 @@
   </link>
   <joint
     name="front_right_wheel_joint"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="-0.00064706 -0.090897 -0.080968"
       rpy="-1.5708 0 0" />
@@ -167,7 +167,7 @@
       lower="-10"
       upper="10"
       effort="10"
-      velocity="20" />
+      velocity="100" />
   </joint>
 
   <!-- Front Left Module -->
@@ -271,7 +271,7 @@
   </link>
   <joint
     name="front_left_wheel_joint"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="0.0006707 0.090897 -0.080967"
       rpy="-1.5708 0 0" />
@@ -285,7 +285,7 @@
       lower="-10"
       upper="10"
       effort="10"
-      velocity="20" />
+      velocity="100" />
   </joint>
 
   <!-- Rear Right Module -->
@@ -389,7 +389,7 @@
   </link>
   <joint
     name="rear_right_wheel_joint"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="-0.00064706 -0.090897 -0.080968"
       rpy="-1.5708 0 0" />
@@ -403,7 +403,7 @@
       lower="-10"
       upper="10"
       effort="10"
-      velocity="20" />
+      velocity="100" />
   </joint>
 
   <!-- Rear Left Module -->
@@ -507,7 +507,7 @@
   </link>
   <joint
     name="rear_left_wheel_joint"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="0.0006707 0.090897 -0.080967"
       rpy="-1.5708 0 0" />
@@ -521,54 +521,58 @@
       lower="-10"
       upper="10"
       effort="10"
-      velocity="20" />
+      velocity="100" />
   </joint>
 
- <!-- === DRIVE WHEEL TRANSMISSIONS (Velocity) === -->
 
-  <transmission name="front_right_wheel_trans">
+
+<!-- === DRIVE WHEEL TRANSMISSIONS (Velocity) === -->
+
+  <transmission name="front_left_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="front_right_wheel_joint">
+    <joint name="front_left_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="front_right_wheel_motor">
+    <actuator name="front_left_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="front_left_wheel_trans">
+  <transmission name="rear_left_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="front_left_wheel_joint">
+    <joint name="rear_left_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="front_left_wheel_motor">
+    <actuator name="rear_left_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="rear_right_wheel_trans">
+  <transmission name="front_right_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rear_right_wheel_joint">
+    <joint name="front_right_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rear_right_wheel_motor">
+    <actuator name="front_right_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="rear_left_wheel_trans">
+  <transmission name="rear_right_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rear_left_wheel_joint">
+    <joint name="rear_right_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rear_left_wheel_motor">
+    <actuator name="rear_right_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+
+
 
   <!-- === STEERING JOINT TRANSMISSIONS (Position) === -->
 

@@ -64,7 +64,7 @@ def generate_launch_description():
         "-name", "bot",
         "-x", "0",  # Set the X position (adjust as needed)
         "-y", "0",  # Set the Y position (adjust as needed)
-        "-z", "0.8"   # Ensure the Z position is set to 0 (ground level)
+        "-z", "0.7"   # Ensure the Z position is set to 0 (ground level)
     ],
 )
 
