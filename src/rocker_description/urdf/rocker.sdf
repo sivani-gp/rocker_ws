@@ -1,0 +1,655 @@
+<sdf version='1.9'>
+  <model name='rocker'>
+    <!-- Include your Gazebo/ROS 2 Control config -->
+    <include>
+      <uri>model://rocker_description/models/rocker_gazebo.sdf</uri>
+      <name>rocker_gazebo</name>
+    </include>
+    <!-- ROS 2 Control -->
+    <include>
+      <uri>model://rocker_description/config/rocker_ros2_control.sdf</uri>
+    </include>
+    <link name='base_link'>
+      <inertial>
+        <pose>0.00298859191128537 0.00327281389503588 0.0236277353082409 0 0 0</pose>
+        <mass>3.5422502642766802</mass>
+        <inertia>
+          <ixx>0.013370695698297399</ixx>
+          <ixy>-2.1714470893956399e-18</ixy>
+          <ixz>-1.2927668928213001e-05</ixz>
+          <iyy>0.014433056958566001</iyy>
+          <iyz>-1.1848983046286401e-19</iyz>
+          <izz>0.0248980091378906</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 0.35</diffuse>
+          <ambient>1 1 1 0.35</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='diff_link_joint' type='revolute'>
+      <pose relative_to='base_link'>0.06297700000000001 0.0032728 0.06364400000000001 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>diff_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78500000000000003</lower>
+          <upper>0.78500000000000003</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='diff_link'>
+      <pose relative_to='diff_link_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.0236047033494912 3.38606037500466e-07 0.00680399175128779 0 0 0</pose>
+        <mass>0.21847330259494499</mass>
+        <inertia>
+          <ixx>0.00070921897363284401</ixx>
+          <ixy>-4.5489028668811699e-11</ixy>
+          <ixz>-5.8092368151766498e-07</ixz>
+          <iyy>2.67923062738046e-05</iyy>
+          <iyz>-9.2820020049120996e-10</iyz>
+          <izz>0.00071747691690268701</izz>
+        </inertia>
+      </inertial>
+      <collision name='diff_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/diff_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='diff_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/diff_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='rocker_left_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.012023 0.14327 0.0036435 -1.5708 0 0</pose>
+      <parent>base_link</parent>
+      <child>rocker_left</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78500000000000003</lower>
+          <upper>0.78500000000000003</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rocker_left'>
+      <pose relative_to='rocker_left_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.00596279660340987 0.019311656792217 0.00821775120018922 0 0 0</pose>
+        <mass>0.54827946649510695</mass>
+        <inertia>
+          <ixx>0.00016071218324072099</ixx>
+          <ixy>-1.1829517549006801e-05</ixy>
+          <ixz>4.6534103603516899e-08</ixz>
+          <iyy>0.0014571233671384399</iyy>
+          <iyz>2.38546497105557e-06</iyz>
+          <izz>0.00150112676292675</izz>
+        </inertia>
+      </inertial>
+      <collision name='rocker_left_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rocker_left.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rocker_left_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rocker_left.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='steer_fl_joint' type='revolute'>
+      <pose relative_to='rocker_left'>0.10949 0.037941 0.046566 1.5708 0 0</pose>
+      <parent>rocker_left</parent>
+      <child>steer_fl</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-3.1400000000000001</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='steer_fl'>
+      <pose relative_to='steer_fl_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.000519302806489791 0.00116147489574503 -0.07224901183856899 0 0 0</pose>
+        <mass>0.053876887327014601</mass>
+        <inertia>
+          <ixx>1.7283569263375198e-05</ixx>
+          <ixy>1.8652425977978699e-10</ixy>
+          <ixz>1.22947445955916e-09</ixz>
+          <iyy>1.2650499733089e-05</iyy>
+          <iyz>1.0347992030706301e-12</iyz>
+          <izz>1.0115174825468999e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='steer_fl_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_fl.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='steer_fl_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_fl.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='fl_wheel_joint' type='revolute'>
+      <pose relative_to='steer_fl'>-0.0015781 0.09089700000000001 -0.080955 -1.5708 0 0</pose>
+      <parent>steer_fl</parent>
+      <child>fl_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>10</effort>
+          <velocity>100</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='fl_wheel'>
+      <pose relative_to='fl_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00209895984803671 -0.00193945272577944 -0.0284087458310821 0 0 0</pose>
+        <mass>0.13017290647518001</mass>
+        <inertia>
+          <ixx>0.000124778074397082</ixx>
+          <ixy>-7.56745189271209e-12</ixy>
+          <ixz>-1.0927757268831e-11</ixz>
+          <iyy>0.00012477797659536899</iyy>
+          <iyz>-2.3640255281252198e-12</iyz>
+          <izz>0.000234671292019043</izz>
+        </inertia>
+      </inertial>
+      <collision name='fl_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/fl_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='fl_wheel_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/fl_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='steer_rl_joint' type='revolute'>
+      <pose relative_to='rocker_left'>-0.11047 0.034053 0.046566 1.5708 0 0</pose>
+      <parent>rocker_left</parent>
+      <child>steer_rl</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78500000000000003</lower>
+          <upper>0.78500000000000003</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='steer_rl'>
+      <pose relative_to='steer_rl_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.000484941569044394 0.00116147486494461 -0.0761644406147317 0 0 0</pose>
+        <mass>0.053876887039627001</mass>
+        <inertia>
+          <ixx>1.7283569258012199e-05</ixx>
+          <ixy>1.8652019105772199e-10</ixy>
+          <ixz>1.22945286982952e-09</ixz>
+          <iyy>1.26504997081888e-05</iyy>
+          <iyz>1.03201975349867e-12</iyz>
+          <izz>1.01151748056035e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='steer_rl_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_rl.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='steer_rl_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_rl.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='rl_wheel_joint' type='revolute'>
+      <pose relative_to='steer_rl'>-0.0015781 0.09089700000000001 -0.080955 -1.5708 0 0</pose>
+      <parent>steer_rl</parent>
+      <child>rl_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>10</effort>
+          <velocity>100</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rl_wheel'>
+      <pose relative_to='rl_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00206456857074838 0.00197597049736126 -0.0284087458310854 0 0 0</pose>
+        <mass>0.13017290647517901</mass>
+        <inertia>
+          <ixx>0.000124777994283405</ixx>
+          <ixy>3.8396873830350701e-11</ixy>
+          <ixz>1.7183606511296401e-12</ixz>
+          <iyy>0.00012477805670904599</iyy>
+          <iyz>1.1047704034202499e-11</iyz>
+          <izz>0.000234671292019043</izz>
+        </inertia>
+      </inertial>
+      <collision name='rl_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rl_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rl_wheel_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rl_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='rocker_right_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.012023 -0.13673 0.0036435 1.5708 0 0</pose>
+      <parent>base_link</parent>
+      <child>rocker_right</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.78500000000000003</lower>
+          <upper>0.78500000000000003</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rocker_right'>
+      <pose relative_to='rocker_right_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.00596288573860194 -0.0193116567449316 0.008179772725430769 0 0 0</pose>
+        <mass>0.54827946798675897</mass>
+        <inertia>
+          <ixx>0.000160712214916101</ixx>
+          <ixy>1.170043772776e-05</ixy>
+          <ixz>-4.5953027394106199e-08</ixz>
+          <iyy>0.00145712333528538</iyy>
+          <iyz>-2.3178201514932099e-06</iyz>
+          <izz>0.00150112676270733</izz>
+        </inertia>
+      </inertial>
+      <collision name='rocker_right_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rocker_right.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rocker_right_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rocker_right.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='steer_fr_joint' type='revolute'>
+      <pose relative_to='rocker_right'>0.1092 -0.037936 0.046481 -1.5708 0 0</pose>
+      <parent>rocker_right</parent>
+      <child>steer_fr</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-3.1400000000000001</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='steer_fr'>
+      <pose relative_to='steer_fr_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.000814806413008712 -0.00116147492243543 -0.0722542108674373 0 0 0</pose>
+        <mass>0.0538768878184284</mass>
+        <inertia>
+          <ixx>1.7283569454874799e-05</ixx>
+          <ixy>1.8652929408193901e-10</ixy>
+          <ixz>5.4176715504570496e-10</ixz>
+          <iyy>1.26504997493636e-05</iyy>
+          <iyz>-9.9620753142793798e-13</iyz>
+          <izz>1.01151746557608e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='steer_fr_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_fr.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='steer_fr_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_fr.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='fr_wheel_joint' type='prismatic'>
+      <pose relative_to='steer_fr'>-0.001284 -0.09089700000000001 -0.08096 -1.5708 0 0</pose>
+      <parent>steer_fr</parent>
+      <child>fr_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-10</lower>
+          <upper>10</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='fr_wheel'>
+      <pose relative_to='fr_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00209895681369876 -0.00193945745264902 0.0284087458310822 0 0 0</pose>
+        <mass>0.13017290647517901</mass>
+        <inertia>
+          <ixx>0.00012477799927836</ixx>
+          <ixy>-4.1966458835123998e-11</ixy>
+          <ixz>2.4003955303358198e-12</ixz>
+          <iyy>0.00012477805171408999</iyy>
+          <iyz>-1.09198274269616e-11</iyz>
+          <izz>0.000234671292019043</izz>
+        </inertia>
+      </inertial>
+      <collision name='fr_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/fr_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='fr_wheel_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/fr_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='steer_rr_joint' type='revolute'>
+      <pose relative_to='rocker_right'>-0.11077 -0.034048 0.046481 -1.5708 0 0</pose>
+      <parent>rocker_right</parent>
+      <child>steer_rr</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-3.1400000000000001</lower>
+          <upper>3.1400000000000001</upper>
+          <effort>10</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='steer_rr'>
+      <pose relative_to='steer_rr_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00078044532898389 -0.00116147486024443 -0.07616963956995861 0 0 0</pose>
+        <mass>0.053876887050630803</mass>
+        <inertia>
+          <ixx>1.72835694385811e-05</ixx>
+          <ixy>1.8652050093144499e-10</ixy>
+          <ixz>5.4176443517472599e-10</ixz>
+          <iyy>1.26504997110791e-05</iyy>
+          <iyz>-9.9760073830717998e-13</iyz>
+          <izz>1.01151746289469e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='steer_rr_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_rr.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='steer_rr_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/steer_rr.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176 0.941176 0.941176 1</diffuse>
+          <ambient>0.941176 0.941176 0.941176 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='rr_wheel_joint' type='revolute'>
+      <pose relative_to='steer_rr'>-0.001284 -0.09089700000000001 -0.08096 -1.5708 0 0</pose>
+      <parent>steer_rr</parent>
+      <child>rr_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>10</effort>
+          <velocity>100</velocity>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rr_wheel'>
+      <pose relative_to='rr_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00206459264032307 0.00197596861393125 0.0284087458310822 0 0 0</pose>
+        <mass>0.13017290647518001</mass>
+        <inertia>
+          <ixx>0.00012477798399415001</ixx>
+          <ixy>-2.6946945506717801e-11</ixy>
+          <ixz>-2.0987034227769701e-14</ixz>
+          <iyy>0.00012477806699830001</iyy>
+          <iyz>-1.1180521384627899e-11</iyz>
+          <izz>0.000234671292019043</izz>
+        </inertia>
+      </inertial>
+      <collision name='rr_wheel_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rr_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rr_wheel_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rocker_description/meshes/rr_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196 1 1 1</diffuse>
+          <ambient>0.990196 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+  
+</sdf>

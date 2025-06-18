@@ -72,12 +72,39 @@
   </gazebo>
 
 
-<gazebo>
-  <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-    <parameters>$(find rocker_controller)/config/rocker_controllers.yaml</parameters>
-  </plugin>
-  <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/>
-  <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors"/>
-</gazebo>
+  <gazebo>
+    <!-- ROS 2 Control Plugin -->
+    <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+      <parameters>$(find rocker_controller)/config/rocker_controllers.yaml</parameters>
+    </plugin>
+
+    <!-- IMU Sensor System -->
+    <!-- <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/> -->
+
+    <!-- Sensor Management System -->
+    <!-- <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors"/> -->
+
+    <!-- Detachable Joint Plugin to Simulate Multi-Parent (e.g., 4-bar style) -->
+    <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
+      <parent_link>rocker_left</parent_link>
+      <child_model>bot</child_model>   
+      <child_link>diff_link</child_link>
+      <attach_topic>attach_diff_to_left</attach_topic>
+    </plugin>
+
+    <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
+      <parent_link>rocker_right</parent_link>
+      <child_model>bot</child_model>   
+      <child_link>diff_link</child_link>
+      <attach_topic>attach_diff_to_right</attach_topic>
+    </plugin>
+
+    <!-- <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
+      <parent_link>base_link</parent_link>
+      <child_model>bot</child_model>   
+      <child_link>diff_link</child_link>
+      <attach_topic>attach_diff_to_base</attach_topic>
+    </plugin> -->
+  </gazebo>
 
 </robot>

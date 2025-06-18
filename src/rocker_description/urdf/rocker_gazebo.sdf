@@ -1,0 +1,213 @@
+<?xml version='1.0'?>
+<sdf version='1.9'>
+  <model name='rocker'>
+    <!-- Wheel Contact Properties -->
+    <link name='fl_wheel'>
+      <collision name='fl_wheel_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>1e6</kp>
+              <kd>10.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.5</max_vel>
+              <fdir1>1 0 0</fdir1>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='rr_wheel'>
+      <collision name='rr_wheel_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>1e6</kp>
+              <kd>10.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.5</max_vel>
+              <fdir1>1 0 0</fdir1>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='rl_wheel'>
+      <collision name='rl_wheel_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>1e6</kp>
+              <kd>10.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.5</max_vel>
+              <fdir1>1 0 0</fdir1>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='fr_wheel'>
+      <collision name='fr_wheel_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>1e6</kp>
+              <kd>10.0</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.5</max_vel>
+              <fdir1>1 0 0</fdir1>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <!-- Steering Link Contact Properties -->
+    <link name='steer_fl'>
+      <collision name='steer_fl_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>100000.0</kp>
+              <kd>10.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='steer_fr'>
+      <collision name='steer_fr_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>100000.0</kp>
+              <kd>10.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='steer_rl'>
+      <collision name='steer_rl_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>100000.0</kp>
+              <kd>10.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='steer_rr'>
+      <collision name='steer_rr_collision'>
+        <surface>
+          <contact>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <kp>100000.0</kp>
+              <kd>10.0</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <!-- Plugins -->
+    <plugin name='ros2_control' filename='libign_ros2_control-system.so'>
+      <parameters>$(find rocker_controller)/config/rocker_controllers.yaml</parameters>
+    </plugin>
+
+    <plugin name='imu_sensor' filename='libignition-gazebo-imu-system.so'>
+      <sensor name='imu_sensor' type='imu'>
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.00017</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.00017</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.00017</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.002</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.002</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.002</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+      </sensor>
+    </plugin>
+
+    <plugin name='sensors' filename='libignition-gazebo-sensors-system.so'/>
+
+    <!-- Detachable Joints -->
+    <plugin name='detachable_joint_left' filename='libgz-sim-detachable-joint-system.so'>
+      <parent_link>rocker_left</parent_link>
+      <child_link>diff_link</child_link>
+      <topic>attach_diff_to_left</topic>
+    </plugin>
+
+    <plugin name='detachable_joint_right' filename='libgz-sim-detachable-joint-system.so'>
+      <parent_link>rocker_right</parent_link>
+      <child_link>diff_link</child_link>
+      <topic>attach_diff_to_right</topic>
+    </plugin>
+
+    <plugin name='detachable_joint_base' filename='libgz-sim-detachable-joint-system.so'>
+      <parent_link>base_link</parent_link>
+      <child_link>diff_link</child_link>
+      <topic>attach_diff_to_base</topic>
+    </plugin>
+  </model>
+</sdf>
