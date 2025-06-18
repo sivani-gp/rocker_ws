@@ -498,7 +498,7 @@
   </link>
   <joint
     name="fr_wheel_joint"
-    type="revolute">
+    type="continuous">
     <origin
       xyz="-0.001284 -0.090897 -0.08096"
       rpy="-1.5708 0 0" />
