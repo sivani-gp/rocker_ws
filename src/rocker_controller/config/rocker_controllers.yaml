@@ -14,15 +14,15 @@ controller_manager:
 simple_velocity_controller:
   ros__parameters:
     joints:
-      - front_right_wheel_joint
-      - front_left_wheel_joint
-      - rear_left_wheel_joint
-      - rear_right_wheel_joint
+      - fr_wheel_joint
+      - fl_wheel_joint
+      - rl_wheel_joint
+      - rr_wheel_joint
 
 swerve_steering_controller:
   ros__parameters:
     joints:
-      - steer_front_left_joint
-      - steer_front_right_joint
-      - steer_rear_left_joint
-      - steer_rear_right_joint
+      - steer_fl_joint
+      - steer_fr_joint
+      - steer_rl_joint
+      - steer_rr_joint

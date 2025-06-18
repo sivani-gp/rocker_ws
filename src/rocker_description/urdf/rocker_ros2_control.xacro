@@ -12,7 +12,7 @@
     </xacro:if>
 
     <!-- DRIVE WHEEL JOINTS (VELOCITY CONTROL) -->
-    <joint name="front_right_wheel_joint">
+    <joint name="fr_wheel_joint">
       <command_interface name="velocity">
         <param name="min">-10</param>
         <param name="max">10</param>
@@ -21,7 +21,7 @@
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="front_left_wheel_joint">
+    <joint name="fl_wheel_joint">
       <command_interface name="velocity">
         <param name="min">-10</param>
         <param name="max">10</param>
@@ -30,7 +30,7 @@
       <state_interface name="velocity"/>
     </joint>
     
-    <joint name="rear_left_wheel_joint">
+    <joint name="rl_wheel_joint">
       <command_interface name="velocity">
         <param name="min">-10</param>
         <param name="max">10</param>
@@ -39,7 +39,7 @@
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="rear_right_wheel_joint">
+    <joint name="rr_wheel_joint">
       <command_interface name="velocity">
         <param name="min">-10</param>
         <param name="max">10</param>
@@ -49,25 +49,25 @@
     </joint>
 
     <!-- STEERING JOINTS (POSITION CONTROL) -->
-    <joint name="steer_front_left_joint">
+    <joint name="steer_fl_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="steer_front_right_joint">
+    <joint name="steer_fr_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="steer_rear_left_joint">
+    <joint name="steer_rl_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
 
-    <joint name="steer_rear_right_joint">
+    <joint name="steer_rr_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>

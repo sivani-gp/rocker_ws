@@ -10,22 +10,22 @@
   <xacro:include filename="$(find rocker_description)/urdf/rocker_gazebo.xacro" />
   <!-- Include control -->
   <xacro:include filename="$(find rocker_description)/urdf/rocker_ros2_control.xacro"/>
-
+  
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.00050491 -6.865E-06 0.018432"
+        xyz="-0.0029178 -1.0243E-05 0.026001"
         rpy="0 0 0" />
       <mass
-        value="4.3525" />
+        value="3.0355" />
       <inertia
-        ixx="0.012465"
-        ixy="5.2568E-06"
-        ixz="1.0799E-05"
-        iyy="0.012459"
-        iyz="-7.1925E-08"
-        izz="0.022004" />
+        ixx="0.011434"
+        ixy="8.2789E-18"
+        ixz="-1.2087E-05"
+        iyy="0.0094299"
+        iyz="-3.1877E-20"
+        izz="0.018372" />
     </inertial>
     <visual>
       <origin
@@ -38,7 +38,7 @@
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="1 0 0 1" />
       </material>
     </visual>
     <collision>
@@ -51,23 +51,21 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- Front Right Module -->
   <link
-    name="steer_front_right">
+    name="diff_link">
     <inertial>
       <origin
-        xyz="-0.000580011325193364 -0.0211614748892629 -0.0742015840408135"
+        xyz="0.0236047033494922 3.38568454466559E-07 0.00680399174365073"
         rpy="0 0 0" />
       <mass
-        value="0.0538768865361953" />
+        value="0.218473302594947" />
       <inertia
-        ixx="1.72828728418579E-05"
-        ixy="1.86500624352126E-10"
-        ixz="-7.06469401373181E-08"
-        iyy="1.26504994050704E-05"
-        iyz="-2.82990645413841E-12"
-        izz="1.01158709169347E-05" />
+        ixx="0.000709218973632844"
+        ixy="-4.54869495674156E-11"
+        ixz="-5.80923680880486E-07"
+        iyy="2.67923062348123E-05"
+        iyz="-9.28184396595003E-10"
+        izz="0.000717476916941679" />
     </inertial>
     <visual>
       <origin
@@ -75,7 +73,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/steer_front_right.STL" />
+          filename="package://rocker_description/meshes/diff_link.STL" />
       </geometry>
       <material
         name="">
@@ -89,42 +87,158 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/steer_front_right.STL" />
+          filename="package://rocker_description/meshes/diff_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="steer_front_right_joint"
+    name="diff_link_joint"
     type="revolute">
     <origin
-      xyz="0.10649 -0.16648 -0.031065"
+      xyz="0.071998 -1.0243E-05 0.066001"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="steer_front_right" />
+      link="diff_link" />
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="2"
-      velocity="3.14" />
+      lower="-0.785"
+      upper="0.785"
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="front_right_wheel">
+    name="T_left">
     <inertial>
       <origin
-        xyz="1.85114703565858E-08 -1.36100179737308E-09 0.00840874583108253"
+        xyz="-0.00596279656055823 0.0193116567400055 0.0182177510881137"
+        rpy="0 0 0" />
+      <mass
+        value="0.548279468054" />
+      <inertia
+        ixx="0.000160712183061877"
+        ixy="-1.1829517489236E-05"
+        ixz="4.65340927469138E-08"
+        iyy="0.00145712336718833"
+        iyz="2.38546499162641E-06"
+        izz="0.00150112676275928" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/T_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/T_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="T_left_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0750000000000018 0.129999999999997 -0.0599999999999974"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="diff_link" />
+    <child
+      link="T_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.785"
+      upper="0.785"
+      effort="10"
+      velocity="20" />
+  </joint>
+  <link
+    name="steer_fl">
+    <inertial>
+      <origin
+        xyz="-0.000138607396474422 0.0211614748792864 -0.0742037212781577"
+        rpy="0 0 0" />
+      <mass
+        value="0.0538768872920871" />
+      <inertia
+        ixx="1.72835692626109E-05"
+        ixy="1.86515416826833E-10"
+        ixz="1.22948666319558E-09"
+        iyy="1.26504997120413E-05"
+        iyz="1.03710843764432E-12"
+        izz="1.01151748078112E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/steer_fl.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/steer_fl.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="steer_fl_joint"
+    type="revolute">
+    <origin
+      xyz="0.110151534483122 0.0359863916031299 0.0365656792826139"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="T_left" />
+    <child
+      link="steer_fl" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="20" />
+  </joint>
+  <link
+    name="fl_wheel">
+    <inertial>
+      <origin
+        xyz="1.69573641517484E-08 -7.54815843162504E-09 -0.00840874583108248"
         rpy="0 0 0" />
       <mass
         value="0.13017290647518" />
       <inertia
-        ixx="0.00012477805886062"
-        ixy="-3.65428145722413E-11"
-        ixz="8.51352948296458E-12"
-        iyy="0.000124777992131831"
-        iyz="-7.24734628585044E-12"
+        ixx="0.000124778074397082"
+        ixy="-7.56745177284866E-12"
+        ixz="-1.0927757268495E-11"
+        iyy="0.000124777976595369"
+        iyz="-2.36402552332323E-12"
         izz="0.000234671292019044" />
     </inertial>
     <visual>
@@ -133,7 +247,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/front_right_wheel.STL" />
+          filename="package://rocker_description/meshes/fl_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -147,20 +261,20 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/front_right_wheel.STL" />
+          filename="package://rocker_description/meshes/fl_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="front_right_wheel_joint"
+    name="fl_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.00064706 -0.090897 -0.080968"
-      rpy="-1.5708 0 0" />
+      xyz="-0.000137084263775206 0.0908967088232522 -0.0809700175540105"
+      rpy="-1.5707963267949 0 0" />
     <parent
-      link="steer_front_right" />
+      link="steer_fl" />
     <child
-      link="front_right_wheel" />
+      link="fl_wheel" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -169,23 +283,21 @@
       effort="10"
       velocity="100" />
   </joint>
-
-  <!-- Front Left Module -->
   <link
-    name="steer_front_left">
+    name="steer_rl">
     <inertial>
       <origin
-        xyz="0.000601677062523953 0.0211614748214363 -0.0742014114853441"
+        xyz="-0.000138607285511289 0.0211614748181154 -0.0742037209979592"
         rpy="0 0 0" />
       <mass
-        value="0.0538768857414007" />
+        value="0.0538768866301723" />
       <inertia
-        ixx="1.72828309289817E-05"
-        ixy="1.86491442781274E-10"
-        ixz="7.27396023667422E-08"
-        iyy="1.2650499347556E-05"
-        iyz="2.88105131447638E-12"
-        izz="1.01159127681761E-05" />
+        ixx="1.72835692098332E-05"
+        ixy="1.86529950289799E-10"
+        ixz="1.22949485862317E-09"
+        iyy="1.2650499668671E-05"
+        iyz="1.05181708221559E-12"
+        izz="1.01151748145831E-05" />
     </inertial>
     <visual>
       <origin
@@ -193,7 +305,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/steer_front_left.STL" />
+          filename="package://rocker_description/meshes/steer_rl.STL" />
       </geometry>
       <material
         name="">
@@ -207,160 +319,42 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/steer_front_left.STL" />
+          filename="package://rocker_description/meshes/steer_rl.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="steer_front_left_joint"
+    name="steer_rl_joint"
     type="revolute">
     <origin
-      xyz="0.1075 0.16656 -0.028875"
-      rpy="0 0 0" />
+      xyz="-0.109848463837903 0.036013571503488 0.0365656792825895"
+      rpy="1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="T_left" />
     <child
-      link="steer_front_left" />
+      link="steer_rl" />
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="2"
-      velocity="3.14" />
+      lower="3.14"
+      upper="3.14"
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="front_left_wheel">
+    name="rl_wheel">
     <inertial>
       <origin
-        xyz="-1.47034815989322E-08 1.13284836511518E-08 -0.00840874583108248"
+        xyz="-1.31347291203177E-08 -1.3115099187222E-08 -0.00840874583108259"
         rpy="0 0 0" />
       <mass
         value="0.130172906475179" />
       <inertia
-        ixx="0.00012477806551227"
-        ixy="-2.91080100437723E-11"
-        ixz="1.11771497667669E-11"
-        iyy="0.00012477798548018"
-        iyz="-2.75314168522619E-13"
-        izz="0.000234671292019042" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://rocker_description/meshes/front_left_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://rocker_description/meshes/front_left_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="front_left_wheel_joint"
-    type="continuous">
-    <origin
-      xyz="0.0006707 0.090897 -0.080967"
-      rpy="-1.5708 0 0" />
-    <parent
-      link="steer_front_left" />
-    <child
-      link="front_left_wheel" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
-      lower="-10"
-      upper="10"
-      effort="10"
-      velocity="100" />
-  </joint>
-
-  <!-- Rear Right Module -->
-  <link
-    name="steer_rear_right">
-    <inertial>
-      <origin
-        xyz="-0.000580011411482007 -0.0211614748238842 -0.0742015838244584"
-        rpy="0 0 0" />
-      <mass
-        value="0.0538768858076498" />
-      <inertia
-        ixx="1.72828727930091E-05"
-        ixy="1.8651033364499E-10"
-        ixz="-7.06469364945646E-08"
-        iyy="1.26504993588792E-05"
-        iyz="-2.83716301581892E-12"
-        izz="1.01158709162859E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://rocker_description/meshes/steer_rear_right.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://rocker_description/meshes/steer_rear_right.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="steer_rear_right_joint"
-    type="revolute">
-    <origin
-      xyz="-0.1135 -0.16648 -0.028907"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="steer_rear_right" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="2"
-      velocity="3.14" />
-  </joint>
-  <link
-    name="rear_right_wheel">
-    <inertial>
-      <origin
-        xyz="-1.14305493542632E-09 -1.85262068325143E-08 0.0084087458310825"
-        rpy="0 0 0" />
-      <mass
-        value="0.13017290647518" />
-      <inertia
-        ixx="0.000124777991281023"
-        ixy="3.5747447874769E-11"
-        ixz="-7.14665348988735E-12"
-        iyy="0.000124778059711427"
-        iyz="-8.59824749793085E-12"
+        ixx="0.000124777994283405"
+        ixy="3.83968737472708E-11"
+        ixz="1.71836063818701E-12"
+        iyy="0.000124778056709046"
+        iyz="1.10477040437135E-11"
         izz="0.000234671292019043" />
     </inertial>
     <visual>
@@ -369,7 +363,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/rear_right_wheel.STL" />
+          filename="package://rocker_description/meshes/rl_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -383,20 +377,20 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/rear_right_wheel.STL" />
+          filename="package://rocker_description/meshes/rl_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rear_right_wheel_joint"
+    name="rl_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.00064706 -0.090897 -0.080968"
-      rpy="-1.5708 0 0" />
+      xyz="-0.000137084263778026 0.0908967088232761 -0.0809700175540202"
+      rpy="-1.5707963267949 0 0" />
     <parent
-      link="steer_rear_right" />
+      link="steer_rl" />
     <child
-      link="rear_right_wheel" />
+      link="rl_wheel" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -405,23 +399,21 @@
       effort="10"
       velocity="100" />
   </joint>
-
-  <!-- Rear Left Module -->
   <link
-    name="steer_rear_left">
+    name="T_right">
     <inertial>
       <origin
-        xyz="0.00060167732615702 0.0211614747863081 -0.0742014114228141"
+        xyz="-0.00596288576987961 -0.0193116567457551 0.0181797727236157"
         rpy="0 0 0" />
       <mass
-        value="0.0538768852693118" />
+        value="0.548279467988765" />
       <inertia
-        ixx="1.72828309195183E-05"
-        ixy="1.86514575463212E-10"
-        ixz="7.27395949353254E-08"
-        iyy="1.26504993295464E-05"
-        iyz="2.87743232265773E-12"
-        izz="1.01159127563237E-05" />
+        ixx="0.000160712214920952"
+        ixy="1.17004377186215E-05"
+        ixz="-4.5953040246728E-08"
+        iyy="0.00145712333528735"
+        iyz="-2.31782017688939E-06"
+        izz="0.00150112676271101" />
     </inertial>
     <visual>
       <origin
@@ -429,7 +421,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/steer_rear_left.STL" />
+          filename="package://rocker_description/meshes/T_right.STL" />
       </geometry>
       <material
         name="">
@@ -443,42 +435,100 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/steer_rear_left.STL" />
+          filename="package://rocker_description/meshes/T_right.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="steer_rear_left_joint"
+    name="T_right_joint"
     type="revolute">
     <origin
-      xyz="-0.11249 0.16656 -0.031097"
-      rpy="0 0 0" />
+      xyz="-0.0750000000000008 -0.130000000000003 -0.0599999999999974"
+      rpy="1.5707963267949 0 0" />
     <parent
-      link="base_link" />
+      link="diff_link" />
     <child
-      link="steer_rear_left" />
+      link="T_right" />
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="2"
-      velocity="3.14" />
+      lower="-0.785"
+      upper="0.785"
+      effort="10"
+      velocity="20" />
   </joint>
   <link
-    name="rear_left_wheel">
+    name="steer_fr">
     <inertial>
       <origin
-        xyz="-1.80971129956631E-08 -4.12570069774354E-09 -0.00840874583108253"
+        xyz="0.000156942341989402 -0.0211614748804977 -0.0742036847520929"
+        rpy="0 0 0" />
+      <mass
+        value="0.0538768874213247" />
+      <inertia
+        ixx="1.72835694212746E-05"
+        ixy="1.86518764204385E-10"
+        ixz="5.41782637895129E-10"
+        iyy="1.26504997150358E-05"
+        iyz="-9.90968342587935E-13"
+        izz="1.01151746544475E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/steer_fr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/steer_fr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="steer_fr_joint"
+    type="revolute">
+    <origin
+      xyz="0.109857359078023 -0.0359864279470623 0.0364809030708298"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="T_right" />
+    <child
+      link="steer_fr" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="20" />
+  </joint>
+  <link
+    name="fr_wheel">
+    <inertial>
+      <origin
+        xyz="1.39230255102873E-08 -1.22750265854621E-08 0.0084087458310832"
         rpy="0 0 0" />
       <mass
         value="0.13017290647518" />
       <inertia
-        ixx="0.000124778046503694"
-        ixy="4.48023027118199E-11"
-        ixz="7.32854429327639E-12"
-        iyy="0.000124778004488757"
-        iyz="8.44375054432804E-12"
+        ixx="0.00012477799927836"
+        ixy="-4.19664586325425E-11"
+        ixz="2.40039555071648E-12"
+        iyy="0.000124778051714091"
+        iyz="-1.09198275501615E-11"
         izz="0.000234671292019044" />
     </inertial>
     <visual>
@@ -487,7 +537,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/rear_left_wheel.STL" />
+          filename="package://rocker_description/meshes/fr_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -501,20 +551,20 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/rear_left_wheel.STL" />
+          filename="package://rocker_description/meshes/fr_wheel.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rear_left_wheel_joint"
+    name="fr_wheel_joint"
     type="continuous">
     <origin
-      xyz="0.0006707 0.090897 -0.080967"
-      rpy="-1.5708 0 0" />
+      xyz="0.000157091141341215 -0.0908967088233148 -0.0809699812101267"
+      rpy="-1.5707963267949 0 0" />
     <parent
-      link="steer_rear_left" />
+      link="steer_fr" />
     <child
-      link="rear_left_wheel" />
+      link="fr_wheel" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -523,101 +573,213 @@
       effort="10"
       velocity="100" />
   </joint>
-
-
-
-<!-- === DRIVE WHEEL TRANSMISSIONS (Velocity) === -->
-
-  <transmission name="front_left_trans">
+  <link
+    name="steer_rr">
+    <inertial>
+      <origin
+        xyz="0.000156942324142354 -0.0211614748347617 -0.0742036846636436"
+        rpy="0 0 0" />
+      <mass
+        value="0.0538768867795237" />
+      <inertia
+        ixx="1.72835694167341E-05"
+        ixy="1.86515908804649E-10"
+        ixz="5.41777829608866E-10"
+        iyy="1.26504996920115E-05"
+        iyz="-9.95184188175488E-13"
+        izz="1.01151746305982E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/steer_rr.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/steer_rr.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="steer_rr_joint"
+    type="revolute">
+    <origin
+      xyz="-0.110142639243014 -0.0360136078473928 0.0364809030708942"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="T_right" />
+    <child
+      link="steer_rr" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="20" />
+  </joint>
+  <link
+    name="rr_wheel">
+    <inertial>
+      <origin
+        xyz="1.09348487885991E-08 -1.49985331862612E-08 0.00840874583108314"
+        rpy="0 0 0" />
+      <mass
+        value="0.13017290647518" />
+      <inertia
+        ixx="0.00012477798399415"
+        ixy="-2.69469454594134E-11"
+        ixz="-2.09870081310354E-14"
+        iyy="0.0001247780669983"
+        iyz="-1.11805214099229E-11"
+        izz="0.000234671292019043" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/rr_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/rr_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.000157091141341666 -0.0908967088232534 -0.0809699812101119"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="steer_rr" />
+    <child
+      link="rr_wheel" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-10"
+      upper="10"
+      effort="10"
+      velocity="100" />
+  </joint>
+    <!-- ===== TRANSMISSIONS FOR ACTUATED JOINTS ===== -->
+  
+  <!-- Wheel velocity transmissions -->
+  <transmission name="fl_wheel_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="front_left_joint">
+    <joint name="fl_wheel_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="front_left_motor">
+    <actuator name="fl_wheel_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="rear_left_trans">
+  <transmission name="rl_wheel_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rear_left_joint">
+    <joint name="rl_wheel_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rear_left_motor">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="front_right_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="front_right_joint">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="front_right_motor">
+    <actuator name="rl_wheel_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="rear_right_trans">
+  <transmission name="fr_wheel_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rear_right_joint">
+    <joint name="fr_wheel_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
-    <actuator name="rear_right_motor">
+    <actuator name="fr_wheel_motor">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-
-
-  <!-- === STEERING JOINT TRANSMISSIONS (Position) === -->
-
-  <transmission name="steer_front_right_trans">
+  <transmission name="rr_wheel_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="steer_front_right_joint">
+    <joint name="rr_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rr_wheel_motor">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Steering position transmissions -->
+  <transmission name="steer_fl_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="steer_fl_joint">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="steer_front_right_motor">
+    <actuator name="steer_fl_motor">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="steer_front_left_trans">
+  <transmission name="steer_rl_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="steer_front_left_joint">
+    <joint name="steer_rl_joint">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="steer_front_left_motor">
+    <actuator name="steer_rl_motor">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="steer_rear_right_trans">
+  <transmission name="steer_fr_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="steer_rear_right_joint">
+    <joint name="steer_fr_joint">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="steer_rear_right_motor">
+    <actuator name="steer_fr_motor">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="steer_rear_left_trans">
+  <transmission name="steer_rr_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="steer_rear_left_joint">
+    <joint name="steer_rr_joint">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="steer_rear_left_motor">
+    <actuator name="steer_rr_motor">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+
 
 </robot>

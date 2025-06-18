@@ -3,7 +3,7 @@
 <robot name="rocker" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Wheels -->
-  <gazebo reference="front_left_wheel">
+  <gazebo reference="fl_wheel">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1e6</kp>
@@ -13,7 +13,7 @@
     <fdir1>1 0 0</fdir1>
   </gazebo>
   
-  <gazebo reference="rear_right_wheel">
+  <gazebo reference="rr_wheel">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1e6</kp>
@@ -23,7 +23,7 @@
     <fdir1>1 0 0</fdir1>
   </gazebo>
 
-  <gazebo reference="rear_left_wheel">
+  <gazebo reference="rl_wheel">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1e6</kp>
@@ -33,7 +33,7 @@
     <fdir1>1 0 0</fdir1>
   </gazebo>
 
-  <gazebo reference="front_right_wheel">
+  <gazebo reference="fr_wheel">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1e6</kp>
@@ -43,28 +43,28 @@
     <fdir1>1 0 0</fdir1>
   </gazebo>
   
-  <gazebo reference="steer_front_left">
+  <gazebo reference="steer_fl">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>100000.0</kp>
     <kd>10.0</kd>
   </gazebo>
 
-  <gazebo reference="steer_front_right">
+  <gazebo reference="steer_fr">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>100000.0</kp>
     <kd>10.0</kd>
   </gazebo>
 
-  <gazebo reference="steer_rear_left">
+  <gazebo reference="steer_rl">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>100000.0</kp>
     <kd>10.0</kd>
   </gazebo>
 
-  <gazebo reference="steer_rear_right">
+  <gazebo reference="steer_rr">
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>100000.0</kp>
