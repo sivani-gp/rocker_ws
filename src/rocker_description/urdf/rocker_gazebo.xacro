@@ -79,23 +79,23 @@
     </plugin>
 
     <!-- IMU Sensor System -->
-    <!-- <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/> -->
+    <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu"/>
 
     <!-- Sensor Management System -->
-    <!-- <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors"/> -->
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors"/>
 
     <!-- Detachable Joint Plugin to Simulate Multi-Parent (e.g., 4-bar style) -->
     <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
       <parent_link>rocker_left</parent_link>
       <child_model>bot</child_model>   
-      <child_link>diff_link</child_link>
+      <child_link>clink_left</child_link>
       <attach_topic>attach_diff_to_left</attach_topic>
     </plugin>
 
     <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
       <parent_link>rocker_right</parent_link>
       <child_model>bot</child_model>   
-      <child_link>diff_link</child_link>
+      <child_link>clink_right</child_link>
       <attach_topic>attach_diff_to_right</attach_topic>
     </plugin>
 
