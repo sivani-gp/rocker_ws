@@ -14,16 +14,16 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="0.0036529 -1.0215E-05 0.02903"
+        xyz="0.0036425 -1.0237E-05 0.029007"
         rpy="0 0 0" />
       <mass
-        value="3.2518" />
+        value="3.2505" />
       <inertia
         ixx="0.012194"
-        ixy="-4.5489E-11"
+        ixy="-1.2887E-11"
         ixz="-1.2673E-05"
         iyy="0.0094514"
-        iyz="-9.282E-10"
+        iyz="2.0372E-12"
         izz="0.019133" />
     </inertial>
     <visual>
@@ -54,17 +54,17 @@
     name="rocker_left">
     <inertial>
       <origin
-        xyz="-0.0059628 0.019312 0.0082178"
+        xyz="-0.00596279660858899 0.019311656764223 0.00821775119149987"
         rpy="0 0 0" />
       <mass
-        value="0.54828" />
+        value="0.548279465838668" />
       <inertia
-        ixx="0.00016071"
-        ixy="-1.183E-05"
-        ixz="4.6534E-08"
-        iyy="0.0014571"
-        iyz="2.3855E-06"
-        izz="0.0015011" />
+        ixx="0.000160712183052689"
+        ixy="-1.18295174930768E-05"
+        ixz="4.65341223670499E-08"
+        iyy="0.00145712336712729"
+        iyz="2.38546500296045E-06"
+        izz="0.00150112676272773" />
     </inertial>
     <visual>
       <origin
@@ -77,7 +77,7 @@
       <material
         name="">
         <color
-          rgba="0 0.4 0 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -112,17 +112,17 @@
     name="steer_fl">
     <inertial>
       <origin
-        xyz="0.000519302806489763 0.00116147489574497 -0.072249011838569"
+        xyz="0.000519302762488599 0.00116147480983056 -0.0722490116852784"
         rpy="0 0 0" />
       <mass
-        value="0.0538768873270146" />
+        value="0.0538768863875911" />
       <inertia
-        ixx="1.72835692633752E-05"
-        ixy="1.86524259779789E-10"
-        ixz="1.22947445955912E-09"
-        iyy="1.2650499733089E-05"
-        iyz="1.0347992030602E-12"
-        izz="1.0115174825469E-05" />
+        ixx="1.72835692168003E-05"
+        ixy="1.86520451951073E-10"
+        ixz="1.22945601642171E-09"
+        iyy="1.26504996734862E-05"
+        iyz="1.03486603556425E-12"
+        izz="1.01151748087639E-05" />
     </inertial>
     <visual>
       <origin
@@ -228,17 +228,17 @@
     name="steer_rl">
     <inertial>
       <origin
-        xyz="0.000484941569044396 0.00116147486494456 -0.0761644406147317"
+        xyz="0.000484941628677482 0.00116147483099063 -0.0761644404434853"
         rpy="0 0 0" />
       <mass
-        value="0.053876887039627" />
+        value="0.053876886763219" />
       <inertia
-        ixx="1.72835692580122E-05"
-        ixy="1.86520191057726E-10"
-        ixz="1.22945286982955E-09"
-        iyy="1.26504997081888E-05"
-        iyz="1.03201975349808E-12"
-        izz="1.01151748056035E-05" />
+        ixx="1.72835692136404E-05"
+        ixy="1.8652062791263E-10"
+        ixz="1.22944997559593E-09"
+        iyy="1.26504996782381E-05"
+        iyz="1.04212079064367E-12"
+        izz="1.01151748208476E-05" />
     </inertial>
     <visual>
       <origin
@@ -344,17 +344,17 @@
     name="rocker_right">
     <inertial>
       <origin
-        xyz="-0.0059629 -0.019312 0.0081798"
+        xyz="-0.00596288564139164 -0.0193116567738485 0.00817977279760604"
         rpy="0 0 0" />
       <mass
-        value="0.54828" />
+        value="0.54827946587469" />
       <inertia
-        ixx="0.00016071"
-        ixy="1.17E-05"
-        ixz="-4.5953E-08"
-        iyy="0.0014571"
-        iyz="-2.3178E-06"
-        izz="0.0015011" />
+        ixx="0.000160712214952262"
+        ixy="1.17004377021412E-05"
+        ixz="-4.595305488417E-08"
+        iyy="0.00145712333524181"
+        iyz="-2.31782014461646E-06"
+        izz="0.00150112676273801" />
     </inertial>
     <visual>
       <origin
@@ -367,7 +367,7 @@
       <material
         name="">
         <color
-          rgba="0 0.4 0 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -402,17 +402,17 @@
     name="steer_fr">
     <inertial>
       <origin
-        xyz="0.000814806464579348 -0.0011614749039093 -0.0722542108542284"
+        xyz="0.000814806507593191 -0.00116147489072244 -0.0722542107353949"
         rpy="0 0 0" />
       <mass
-        value="0.0538768875909339" />
+        value="0.0538768872737433" />
       <inertia
-        ixx="1.7283569439176E-05"
-        ixy="1.86519220841325E-10"
-        ixz="5.41777362598005E-10"
-        iyy="1.26504997368065E-05"
-        iyz="-9.95471491964069E-13"
-        izz="1.01151746572533E-05" />
+        ixx="1.7283569426659E-05"
+        ixy="1.86515428145444E-10"
+        ixz="5.41775108617785E-10"
+        iyy="1.26504997390041E-05"
+        iyz="-9.97068339061866E-13"
+        izz="1.01151746673558E-05" />
     </inertial>
     <visual>
       <origin
@@ -518,17 +518,17 @@
     name="steer_rr">
     <inertial>
       <origin
-        xyz="0.000780445293958792 -0.00116147482875609 -0.0761696396391992"
+        xyz="0.000780445270329057 -0.00116147487171195 -0.0761696395712882"
         rpy="0 0 0" />
       <mass
-        value="0.053876886751126" />
+        value="0.0538768871625175" />
       <inertia
-        ixx="1.72835694160757E-05"
-        ixy="1.86521749794259E-10"
-        ixz="5.41788240519471E-10"
-        iyy="1.26504996855531E-05"
-        iyz="-9.90981572115684E-13"
-        izz="1.0115174625481E-05" />
+        ixx="1.72835694318758E-05"
+        ixy="1.86519124149826E-10"
+        ixz="5.41758961396237E-10"
+        iyy="1.26504997202066E-05"
+        iyz="-9.97542075043563E-13"
+        izz="1.01151746450203E-05" />
     </inertial>
     <visual>
       <origin
@@ -576,16 +576,16 @@
     name="rr_wheel">
     <inertial>
       <origin
-        xyz="0.0020646 0.001976 0.028409"
+        xyz="-1.3569E-08 -1.2666E-08 0.0084087"
         rpy="0 0 0" />
       <mass
         value="0.13017" />
       <inertia
         ixx="0.00012478"
-        ixy="-2.6947E-11"
-        ixz="-2.0987E-14"
+        ixy="3.6109E-11"
+        ixz="-1.1101E-11"
         iyy="0.00012478"
-        iyz="-1.1181E-11"
+        iyz="-1.3289E-12"
         izz="0.00023467" />
     </inertial>
     <visual>
@@ -616,7 +616,7 @@
     name="rr_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.00128398760065685 -0.0908967088232536 -0.0809599525113122"
+      xyz="0.000780594104818705 -0.0708967088232536 -0.0829359361237778"
       rpy="-1.5707963267949 0 0" />
     <parent
       link="steer_rr" />
@@ -631,20 +631,20 @@
       velocity="100" />
   </joint>
   <link
-    name="clink_left">
+    name="diff_link">
     <inertial>
       <origin
-        xyz="-6.93889390390723E-16 -1.33226762955019E-15 6.02295990859147E-15"
+        xyz="0.0236047033494913 3.3860603747965E-07 0.00680399175128785"
         rpy="0 0 0" />
       <mass
-        value="0.00245633275602552" />
+        value="0.218473302594945" />
       <inertia
-        ixx="3.2073073695252E-06"
-        ixy="4.03961406958447E-25"
-        ixz="1.41020144713961E-20"
-        iyy="3.20730736632451E-06"
-        iyz="-1.01197867219257E-10"
-        izz="7.6760430632636E-09" />
+        ixx="0.000709218973632844"
+        ixy="-4.54890286672036E-11"
+        ixz="-5.80923681517665E-07"
+        iyy="2.67923062738046E-05"
+        iyz="-9.28200200488253E-10"
+        izz="0.000717476916902687" />
     </inertial>
     <visual>
       <origin
@@ -652,12 +652,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/clink_left.STL" />
+          filename="package://rocker_description/meshes/diff_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -666,88 +666,29 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rocker_description/meshes/clink_left.STL" />
+          filename="package://rocker_description/meshes/diff_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="clink_left_joint"
-    type="continuous">
+    name="diff_link_joint"
+    type="revolute">
     <origin
-      xyz="0.03012 0.11099 0.088996"
-      rpy="1.5708 0 1.5708" />
+      xyz="0.0719999263371985 -1.02373561229607E-05 0.0659981514243161"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="clink_left" />
+      link="diff_link" />
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-10"
-      upper="10"
+      lower="-0.785"
+      upper="0.785"
       effort="10"
       velocity="20" />
   </joint>
-  <link
-    name="clink_right">
-    <inertial>
-      <origin
-        xyz="-6.93889390390723E-18 0 -2.77555756156289E-17"
-        rpy="0 0 0" />
-      <mass
-        value="0.00245633275602552" />
-      <inertia
-        ixx="3.2073073695252E-06"
-        ixy="8.82223666204742E-25"
-        ixz="3.37475697589242E-20"
-        iyy="3.20730736632452E-06"
-        iyz="-1.01197867165641E-10"
-        izz="7.6760430632636E-09" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://rocker_description/meshes/clink_right.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://rocker_description/meshes/clink_right.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="clink_right_joint"
-    type="continuous">
-    <origin
-      xyz="0.03012 -0.11101 0.088996"
-      rpy="1.5708 0 1.5708" />
-    <parent
-      link="base_link" />
-    <child
-      link="clink_right" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
-      lower="-10"
-      upper="10"
-      effort="10"
-      velocity="20" />
-  </joint>
-
-        <!-- ===== TRANSMISSIONS FOR ACTUATED JOINTS ===== -->
+          <!-- ===== TRANSMISSIONS FOR ACTUATED JOINTS ===== -->
   
   <!-- Wheel velocity transmissions -->
   <transmission name="fl_wheel_trans">
@@ -838,4 +779,120 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <!-- <link
+    name="turnbuckle_left">
+    <inertial>
+      <origin
+        xyz="5.34219644405254E-05 -0.000100047522705149 3.94380414436846E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.00309472740252932" />
+      <inertia
+        ixx="3.21656774622978E-06"
+        ixy="-4.10495316029439E-10"
+        ixz="3.51196526219277E-11"
+        iyy="3.21711732254786E-06"
+        iyz="-8.25530439188717E-11"
+        izz="1.42977819273037E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/turnbuckle_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/turnbuckle_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turnbuckle_left_joint"
+    type="revolute">
+    <origin
+      xyz="-0.04188 0.111 0.022998"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="diff_link" />
+    <child
+      link="turnbuckle_left" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="10"
+      velocity="20" />
+  </joint>
+  <link
+    name="turnbuckle_right">
+    <inertial>
+      <origin
+        xyz="-2.95876236215131E-05 -2.45605062221266E-05 1.0037929376594E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.00309472738645889" />
+      <inertia
+        ixx="3.21674519059412E-06"
+        ixy="-5.19742068643782E-10"
+        ixz="-6.77215920633861E-11"
+        iyy="3.21693988199051E-06"
+        iyz="-1.96901591552011E-11"
+        izz="1.42977779775118E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/turnbuckle_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rocker_description/meshes/turnbuckle_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="turnbuckle_right_joint"
+    type="revolute">
+    <origin
+      xyz="-0.04188 -0.111 0.022998"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="diff_link" />
+    <child
+      link="turnbuckle_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="10"
+      velocity="20" />
+  </joint> -->
 </robot>

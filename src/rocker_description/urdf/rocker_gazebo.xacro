@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 
 <robot name="rocker" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Assuming 'pi' is defined in a parent file -->
+  <xacro:property name="math_pi_over_2" value="${pi/2}"/>
 
   <!-- Wheels -->
   <gazebo reference="fl_wheel">
@@ -71,7 +73,6 @@
     <kd>10.0</kd>
   </gazebo>
 
-
   <gazebo>
     <!-- ROS 2 Control Plugin -->
     <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
@@ -83,28 +84,54 @@
 
     <!-- Sensor Management System -->
     <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors"/>
-
-    <!-- Detachable Joint Plugin to Simulate Multi-Parent (e.g., 4-bar style) -->
-    <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
-      <parent_link>rocker_left</parent_link>
-      <child_model>bot</child_model>   
-      <child_link>clink_left</child_link>
-      <attach_topic>attach_diff_to_left</attach_topic>
-    </plugin>
-
-    <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
-      <parent_link>rocker_right</parent_link>
-      <child_model>bot</child_model>   
-      <child_link>clink_right</child_link>
-      <attach_topic>attach_diff_to_right</attach_topic>
-    </plugin>
-
-    <!-- <plugin filename="libgz-sim-detachable-joint-system.so" name="gz::sim::systems::DetachableJoint">
-      <parent_link>base_link</parent_link>
-      <child_model>bot</child_model>   
-      <child_link>diff_link</child_link>
-      <attach_topic>attach_diff_to_base</attach_topic>
-    </plugin> -->
   </gazebo>
 
+
+  <!-- Add Gazebo properties to existing turnbuckles (defined in URDF) -->
+  <gazebo reference="turnbuckle_left">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>100000.0</kp>
+    <kd>10.0</kd>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="turnbuckle_right">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>100000.0</kp>
+    <kd>10.0</kd>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <!-- Add Gazebo properties to turnbuckle joints -->
+  <gazebo reference="turnbuckle_left_joint">
+    <physics>
+      <ode>
+        <limit>
+          <cfm>0.1</cfm>
+          <erp>0.2</erp>
+        </limit>
+        <suspension>
+          <cfm>0.1</cfm>
+          <erp>0.2</erp>
+        </suspension>
+      </ode>
+    </physics>
+  </gazebo>
+
+  <gazebo reference="turnbuckle_right_joint">
+    <physics>
+      <ode>
+        <limit>
+          <cfm>0.1</cfm>
+          <erp>0.2</erp>
+        </limit>
+        <suspension>
+          <cfm>0.1</cfm>
+          <erp>0.2</erp>
+        </suspension>
+      </ode>
+    </physics>
+  </gazebo>
 </robot>
