@@ -9,7 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY meshes urdf launch
+  DIRECTORY meshes urdf launch models
   DESTINATION share/${PROJECT_NAME}
 )
 # uncomment the following section in order to fill in

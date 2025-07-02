@@ -779,7 +779,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <!-- <link
+  <link
     name="turnbuckle_left">
     <inertial>
       <origin
@@ -894,5 +894,5 @@
       upper="0.1"
       effort="10"
       velocity="20" />
-  </joint> -->
+  </joint>
 </robot>
