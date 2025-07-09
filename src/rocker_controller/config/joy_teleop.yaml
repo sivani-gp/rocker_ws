@@ -1,0 +1,11 @@
+teleop:
+  ros__parameters:
+    axis_linear: 1       # Left stick vertical
+    axis_angular: 0      # Left stick horizontal
+    scale_linear: 0.6    # Max linear speed
+    scale_angular: 1.5   # Max angular speed
+
+    enable_button: 4     # LB
+    require_enable_button: true
+
+    type: "twist"        # Publish to /cmd_vel
