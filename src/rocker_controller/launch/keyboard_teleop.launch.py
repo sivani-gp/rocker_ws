@@ -10,8 +10,8 @@ def generate_launch_description():
             name='swerve_controller',
             output='screen',
             parameters=[{
-                'wheel_base': 0.4,
-                'track_width': 0.35
+                'wheel_base': 0.456,
+                'track_width': 0.22
             }]
         ),
         
