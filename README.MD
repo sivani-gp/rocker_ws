@@ -32,12 +32,13 @@ sudo apt install \
   ros-humble-ros2-controllers \
   ros-humble-joint-state-publisher-gui \
   python3-colcon-common-extensions
+```
 ```bash
 1️⃣ Clone the Repository
 mkdir -p ~/rocker_ws/src
 cd ~/rocker_ws/src
 git clone https://github.com/your_username/rocker_ws.git
-
+```
 2️⃣ Build the Workspace
 cd ~/rocker_ws
 colcon build --symlink-install
