@@ -33,29 +33,38 @@ sudo apt install \
   ros-humble-joint-state-publisher-gui \
   python3-colcon-common-extensions
 ```
-```bash
+
 1️⃣ Clone the Repository
+```bash
 mkdir -p ~/rocker_ws/src
 cd ~/rocker_ws/src
 git clone https://github.com/your_username/rocker_ws.git
 ```
 2️⃣ Build the Workspace
+```bash
 cd ~/rocker_ws
 colcon build --symlink-install
 source install/setup.bash
+```
 
 🧪 Running the Simulation
+```bash
 Open 3 separate terminals and source the workspace in each:
 source ~/rocker_ws/install/setup.bash
+```
 
 🔷 Terminal 1: Launch Gazebo with the Robot
+```bash
 ros2 launch rocker_description gazebo.launch.py
+```
 
 🔶 Terminal 2: Load ROS 2 Controllers
+```bash
 ros2 launch rocker_controller controller.launch.py
-
+```
 ⌨️ Terminal 3: Keyboard Teleoperation
+```bash
 ros2 launch rocker_controller keyboard_teleop.launch.py
-
+```
 
 
