@@ -13,8 +13,8 @@ This repository contains a ROS 2 package for simulating and controlling a **Swer
 - `rocker_description/` – URDF and Xacro files for robot description
 - `rocker_controller/` – ROS 2 Control configs and launch files
 - `launch/` – Gazebo, controllers, and teleop launch scripts
-- `rviz/` – RViz configuration (if included)
-- `worlds/` – Custom Gazebo world files (optional)
+- `rviz/` – RViz configuration 
+
 
 ## 🛠️ Prerequisites
 
