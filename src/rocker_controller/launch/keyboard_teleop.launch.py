@@ -6,8 +6,8 @@ def generate_launch_description():
         # Your swerve controller node
         Node(
             package='rocker_controller',
-            executable='controller.py',
-            name='swerve_controller',
+            executable='swerve_ik.py',
+            name='swerve_ik_controller',
             output='screen',
             parameters=[{
                 'wheel_base': 0.456,

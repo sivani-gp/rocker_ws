@@ -31,7 +31,7 @@ class SwerveDriveController(Node):
 
         # Robot-specific parameters (adjust these to match your robot)
         self.wheel_base = 0.4  # Distance between front and rear axles (meters)
-        self.track_width = 0.35  # Distance between left and right wheels (meters)
+        self.track_width = 0.22  # Distance between left and right wheels (meters)
         
         self.get_logger().info("Swerve Drive Controller initialized")
 

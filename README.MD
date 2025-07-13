@@ -66,5 +66,3 @@ ros2 launch rocker_controller controller.launch.py
 ```bash
 ros2 launch rocker_controller keyboard_teleop.launch.py
 ```
-
-
