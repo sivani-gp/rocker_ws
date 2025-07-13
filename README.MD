@@ -66,3 +66,15 @@ ros2 launch rocker_controller controller.launch.py
 ```bash
 ros2 launch rocker_controller keyboard_teleop.launch.py
 ```
+# 🌀 Running Trajectory Commands
+To make the robot follow predefined trajectories using forward kinematics, run the following:
+
+🔵 Circle Trajectory:
+```bash
+ros2 run rocker_controller circle_trajectory.py
+```
+
+🟢 L-Shaped Trajectory:
+```bash
+ros2 run rocker_controller swerve_l_path_commander.py
+```
